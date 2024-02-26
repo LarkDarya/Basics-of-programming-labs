@@ -1,0 +1,3 @@
+C:/Users/darya/CLionProjects/Basics-of-programming-labs/cmake-build-debug/CMakeFiles/Basics_of_programming_labs.dir
+C:/Users/darya/CLionProjects/Basics-of-programming-labs/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/darya/CLionProjects/Basics-of-programming-labs/cmake-build-debug/CMakeFiles/rebuild_cache.dir
