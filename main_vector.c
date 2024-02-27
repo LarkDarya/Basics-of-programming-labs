@@ -1,5 +1,5 @@
 #include <assert.h>
-#include "vector.c"
+#include "libs/data_structures/vector/vector.c"
 
 void test_pushBack_emptyVector() {
     vector test_v1 = createVector(0);
