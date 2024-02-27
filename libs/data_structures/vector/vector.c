@@ -9,14 +9,13 @@ typedef struct vector {
 } vector;
 
 //возвращает структуру-дескриптор вектор из n значений.
-vector createVector(size_t n) {
-    vector v;
-    v.size = n;
-    v.capacity = n;
-    v.data = (int*)malloc(n * sizeof(int));
+vector createVector(size_t n){
+    vector v = {(int *) malloc(sizeof(int) * n), 0, n};
 
-    fprintf(stderr, "bad alloc");
-    exit(1);
+    if (v.data == NULL) {
+        fprintf(stderr, "bad alloc");
+        exit(1);
+    }
 
     return v;
 }
@@ -59,7 +58,6 @@ void shrinkToFit(vector* v) {
 void deleteVector(vector* v) {
     free(v->data);
 }
-
 
 //проверка на то, является ли вектор пустым.
 bool isEmpty(vector* v) {
