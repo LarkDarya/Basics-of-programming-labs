@@ -32,12 +32,62 @@ void test_popBack_notEmptyVector() {
     assert(v.capacity == 1);
 }
 
+void test_atVector_notEmptyVector(){
+    vector test_v1 = createVector(2);
 
+    pushBack(&test_v1, 4);
+    pushBack(&test_v1, 8);
+
+    int first_element = *atVector(&test_v1, 0);
+    int second_element = *atVector(&test_v1, 1);
+
+    assert(first_element == 4);
+    assert(second_element == 8);
+}
+
+void test_atVector_requestToLastElement() {
+    vector test_v1 = createVector(2);
+
+    pushBack(&test_v1, 4);
+    pushBack(&test_v1, 8);
+
+    int last_element = *atVector(&test_v1, 1);
+
+
+    assert(last_element == 8);
+}
+
+void test_back_oneElementInVector() {
+    vector test_v1 = createVector(2);
+
+    pushBack(&test_v1, 4);
+    pushBack(&test_v1, 8);
+
+    int last_element = *back(&test_v1);
+
+    assert(last_element == 8);
+}
+
+void test_front_oneElementInVector(){
+    vector test_v1 = createVector(2);
+
+    pushBack(&test_v1, 4);
+    pushBack(&test_v1, 8);
+
+    int first_element = *front(&test_v1);
+
+
+    assert(first_element == 4);
+}
 
 void test(){
     test_pushBack_emptyVector();
     test_pushBack_fullVector();
     test_popBack_notEmptyVector();
+    test_atVector_notEmptyVector();
+    test_atVector_requestToLastElement();
+    test_back_oneElementInVector();
+    test_front_oneElementInVector();
 }
 
 int main(){
