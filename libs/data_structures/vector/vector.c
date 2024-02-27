@@ -107,18 +107,10 @@ int* atVector(vector* v, size_t index) {
 
 //возвращает указатель на последний элемент вектора.
 int* back(vector* v) {
-    if (!isEmpty(v)) {
-        return &(v->data[v->size - 1]);
-    }
-
-    return NULL;
+    return &(v->data[v->size - 1]);
 }
-
 
 int* front(vector* v) {
-    if (!isEmpty(v)) {
-        return &(v->data[0]);
-    }
-
-    return NULL;
+    return &(v->data[0]);
 }
+
