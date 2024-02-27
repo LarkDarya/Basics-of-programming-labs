@@ -110,6 +110,7 @@ int* back(vector* v) {
     return &(v->data[v->size - 1]);
 }
 
+//возвращает указатель на нулевой элемент вектора.
 int* front(vector* v) {
     return &(v->data[0]);
 }
