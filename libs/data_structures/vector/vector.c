@@ -45,7 +45,7 @@ void clear(vector* v) {
     v->size = 0;
 }
 
-//освобождает память, выделенную поднеиспользуемые элементы.
+//освобождает память, выделенную под неиспользуемые элементы.
 void shrinkToFit(vector* v) {
     int* newData = (int*)realloc(v->data, v->size * sizeof(int));
     if (newData != NULL) {
