@@ -10,6 +10,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         int x;
         scanf("%d", &x);
+        
         pushBackV(&v, &x);
     }
     
@@ -17,6 +18,7 @@ int main() {
         int x;
         
         getVectorValueV(&v, i, &x);
+        
         printf("%d ", x);
     }
     
