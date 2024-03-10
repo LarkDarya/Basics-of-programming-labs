@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-//
-// Created by darya on 10.03.2024.
-//
-=======
 #include <malloc.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -41,7 +36,3 @@ void freeMemMatrices(matrix *ms, int nMatrices){
         free (ms[i].values);
     }
 }
-
-
-
->>>>>>> 4316811 (implementation of functions for working with dynamic memory)

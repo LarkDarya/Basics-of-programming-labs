@@ -12,8 +12,6 @@ typedef struct position {
     int colIndex;
 } position;
 
-<<<<<<< HEAD
-=======
 //размещает в динамической памяти матрицу размером nRows на nCols
 matrix getMemMatrix(int nRows, int nCols);
 
@@ -26,5 +24,4 @@ void freeMemMatrix(matrix *m);
 //освобождает память, выделенную под хранение массива ms из nMatrices матриц
 void freeMemMatrices(matrix *ms, int nMatrices);
 
->>>>>>> 4316811 (implementation of functions for working with dynamic memory)
 #endif //BASICS_OF_PROGRAMMING_LABS_MATRIX_H
