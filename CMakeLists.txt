@@ -3,7 +3,7 @@ add_library(data_structurs
         vector.h
         vectorVoid.h
         vectorVoid.c
-
+        matrix/matrix.c
         <<<<<<< HEAD
 )
 =======
