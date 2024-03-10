@@ -134,7 +134,6 @@ void swap(int *a, int *b) {
     *b = t;
 }
 
-
 //выполняет сортировку выбором столбцов матрицы m по неубыванию значения функции criteria применяемой для столбцов
 void selectionSortColsMatrixByColCriteria(matrix m,int (*criteria)(int*, int)){
     int *criteriaValues = (int*)malloc(sizeof(int) * m.nCols);
@@ -166,3 +165,58 @@ void selectionSortColsMatrixByColCriteria(matrix m,int (*criteria)(int*, int)){
     free(criteriaValues);
 }
 
+//возвращает значение ’истина’, если матрица m является квадратной, ложь – в противном случае
+bool isSquareMatrix(matrix *m){
+    return (m->nCols == m->nRows);
+}
+
+//возвращает значение ’истина’, если матрицы m1 и m2 равны, ложь – в противном случае
+bool areTwoMatricesEqual(matrix *m1, matrix *m2){
+    if (m1->nRows != m2->nRows || m1->nCols != m2->nCols) {
+        return 0;
+    }
+    for (int i = 0; i < m1->nRows; i++) {
+        for (int j = 0; j < m1->nCols; j++) {
+            if (m1->values[i][j] != m2->values[i][j]) {
+                return 0;
+            }
+        }
+    }
+
+    return 1;
+}
+
+//возвращает значение ’истина’, если матрица m является единичной, ложь – в противном случае
+bool isEMatrix(matrix *m){
+    if (m->nRows != m->nCols) {
+        return 0;
+    }
+
+    int n = m->nRows;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if ((i == j) != m->values[i][j]) {
+                return 0;
+            }
+        }
+    }
+
+    return 1;
+}
+
+//возвращает значение ’истина’, если матрица m является симметричной, ложь – в противном случае
+bool isSymmetricMatrix(matrix *m){
+    if (m->nRows != m->nCols) {
+        return 0;
+    }
+
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = 0; j < i; j++) {
+            if (m->values[i][j] != m->values[j][i]) {
+                return 0;
+            }
+        }
+    }
+
+    return 1;
+}
