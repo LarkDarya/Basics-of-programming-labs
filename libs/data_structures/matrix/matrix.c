@@ -134,6 +134,7 @@ void swap(int *a, int *b) {
     *b = t;
 }
 
+
 //выполняет сортировку выбором столбцов матрицы m по неубыванию значения функции criteria применяемой для столбцов
 void selectionSortColsMatrixByColCriteria(matrix m,int (*criteria)(int*, int)){
     int *criteriaValues = (int*)malloc(sizeof(int) * m.nCols);
