@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
-#include "libs/data_structures/vector/vectorVoid.c"
+#include "libs/data_structures/vectorVoid/vectorVoid.c"
 
 void test_isEmpty_emptyVectorVoid() {
     vectorVoid v;
