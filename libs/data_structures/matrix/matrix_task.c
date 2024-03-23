@@ -32,17 +32,17 @@ int getMax(int* a, int n) {
 }
 
 //сортирует строки по неубывнию наибольших элементов строк
-void sortRowsByMaxElement(matrix a) {
-    int *max = (int*)malloc(sizeof(int) * a.nRows);
+void sortRowsByMaxElement(matrix m) {
+    int *max = (int*)malloc(sizeof(int) * m.nRows);
 
-    for (int i = 0; i < a.nRows; i++) {
-        max[i] = getMax(a.values[i], a.nCols);
+    for (int i = 0; i < m.nRows; i++) {
+        max[i] = getMax(m.values[i], m.nCols);
     }
 
-    for (int i = 0; i < a.nRows; i++) {
+    for (int i = 0; i < m.nRows; i++) {
         int minIndex = i;
 
-        for (int j = i + 1; j < a.nRows; j++) {
+        for (int j = i + 1; j < m.nRows; j++) {
             if (max[j] < max[minIndex]) {
                 minIndex = j;
             }
@@ -50,7 +50,7 @@ void sortRowsByMaxElement(matrix a) {
 
         if (i != minIndex) {
             swap(&max[i], &max[minIndex]);
-            swapRows(a, i, minIndex);
+            swapRows(m, i, minIndex);
         }
     }
 
@@ -62,4 +62,55 @@ void secondTask(matrix m){
     for (int i = 0; i < m.nRows; i++) {
         sortRowsByMaxElement(m);
     }
+}
+
+// функция-критерий для сравнения строк по минимальному элементу
+int getMin(int *a, int n) {
+    assert(n > 0);
+
+    int min = a[0];
+
+    for (int i = 1; i < n; i++) {
+        if (a[i] < min) {
+            min = a[i];
+        }
+    }
+
+    return min;
+}
+
+//упорядочивает столбцы матрицы по неубыванию минимальных элементов столбцов
+void sortColsByMinElemnt(matrix m) {
+    int *criteriaValues = (int*)malloc(sizeof(int) * m.nCols);
+    int *column = (int*)malloc(sizeof(int) * m.nRows);
+
+    for (int j = 0; j < m.nCols; j++) {
+        for (int i = 0; i < m.nRows; i++) {
+            column[i] = m.values[i][j];
+        }
+
+        criteriaValues[j] = getMin(column, m.nCols);
+    }
+
+    for (int i = 0; i < m.nCols; i++) {
+        int minIndex = i;
+
+        for (int j = i + 1; j < m.nCols; j++) {
+            if (criteriaValues[j] < criteriaValues[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        if (i != minIndex) {
+            swap(&criteriaValues[i], &criteriaValues[minIndex]);
+            swapColumns(m, i, minIndex);
+        }
+    }
+
+    free(column);
+    free(criteriaValues);
+}
+
+void thirdTask(matrix m){
+    sortColsByMinElemnt(m);
 }
