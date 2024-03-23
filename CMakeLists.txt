@@ -5,6 +5,7 @@ add_library(data_structurs
         vectorVoid.c
         matrix/matrix.c
         <<<<<<< HEAD
+        libs/data_structures/matrix/matrix_task.h
 )
 =======
 )
