@@ -28,6 +28,8 @@ long long seventhTask(matrix m);
 //Задача 8: находит минимальный элемент в выделенной области.
 int eighthTask(matrix m);
 
+//Задание 9: сортирует точки по неубыванию их расстояний до начала координат.
+void ninthTask(matrix m);
 
 
 
@@ -70,5 +72,13 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 //находит минимальный элемент в выделенной области
 int getMinInArea(matrix m);
 
+//вычисляет расстояние до начала координат
+float getDistance(int *a, int n);
+
+//сортирует строки матрицы по заданному критерию
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int));
+
+//сортирует по расстоянию до начала координат
+void sortByDistances(matrix m);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_MATRIX_TASKS_H
