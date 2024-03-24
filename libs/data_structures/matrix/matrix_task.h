@@ -16,6 +16,10 @@ void thirdTask(matrix m);
 //Задание 4: заменяет квадратную матрицу её квадратом.
 matrix fourthTask(matrix m);
 
+//Задача 5: транспонирует матрицу, если среди сумм элементов строк матрицы нет равных
+void fifthTask(matrix *m);
+
+
 
 
 // функция-критерий для сравнения строк по максимальному элементу
@@ -35,5 +39,15 @@ matrix mulMatrices(matrix m1, matrix m2);
 
 //возвращает квадрат матрицы, если она симметрична
 matrix getSquareOfMatrixIfSymmetric(matrix m);
+
+// функция-критерий для сравнения строк по сумме элементов
+long long getSum(int* a, int nCols);
+
+//проверяет элементы на уникальность
+bool isUnique(long long *a, int n);
+
+//транспонирует матрицу, если среди сумм элементов строк матрицы нет равных
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
+
 
 #endif //BASICS_OF_PROGRAMMING_LABS_MATRIX_TASKS_H
