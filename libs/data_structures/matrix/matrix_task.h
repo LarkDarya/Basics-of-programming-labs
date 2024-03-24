@@ -22,9 +22,8 @@ void fifthTask(matrix *m);
 //Задача 6: определяет, являются ли две матрицы взаимообратными
 bool sixthTask(matrix m1, matrix m2);
 
-
-
-
+//Задача 7: находит сумму максимальных элементов всех псевдодиагоналей
+long long seventhTask(matrix m);
 
 
 // функция-критерий для сравнения строк по максимальному элементу
@@ -56,6 +55,13 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
 
 //определяет, являются ли две матрицы взаимообратными
 bool isMutuallyInverseMatrices(matrix m1, matrix m2);
+
+//возвращает максимальное из двух чисел
+int max(int a, int b);
+
+//находит сумму максимальных элементов всех псевдодиагоналей
+long long findSumOfMaxesOfPseudoDiagonal(matrix m);
+
 
 
 #endif //BASICS_OF_PROGRAMMING_LABS_MATRIX_TASKS_H
