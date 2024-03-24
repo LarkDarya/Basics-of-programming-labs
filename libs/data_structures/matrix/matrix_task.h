@@ -34,6 +34,8 @@ void ninthTask(matrix m);
 //Задача 10: определяет количество классов эквивалентных строк данной прямоугольной матрицы
 int tenthTask(matrix m);
 
+//Задача 11: определяет количество особых элементов матрицы
+int eleventhTask(matrix m);
 
 
 // функция-критерий для сравнения строк по максимальному элементу
@@ -92,5 +94,9 @@ int countNUnique(long long *a, int n);
 
 //считает количество эквивалентных классов по суммам строк в матрице m
 int countEqClassesByRowsSum(matrix m);
+
+//определяет количество особых элементов матрицы
+int getNSpecialElement(matrix m);
+
 
 #endif //BASICS_OF_PROGRAMMING_LABS_MATRIX_TASKS_H

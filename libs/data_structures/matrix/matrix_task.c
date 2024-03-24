@@ -403,3 +403,30 @@ int countEqClassesByRowsSum(matrix m) {
 int tenthTask(matrix m){
     return countEqClassesByRowsSum(m);
 }
+
+//определяет количество особых элементов матрицы
+int getNSpecialElement(matrix m) {
+    int count = 0;
+
+    for (int j = 0; j < m.nCols; j++) {
+        for (int i = 0; i < m.nRows; i++) {
+            int sum = 0;
+            for (int k = 0; k < m.nRows; k++) {
+                if (k != i) {
+                    sum += m.values[k][j];
+                }
+            }
+
+            if (m.values[i][j] > sum) {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
+//Задача 11: определяет количество особых элементов матрицы
+int eleventhTask(matrix m){
+    return getNSpecialElement(m);
+}
