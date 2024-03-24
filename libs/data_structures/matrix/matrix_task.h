@@ -19,6 +19,11 @@ matrix fourthTask(matrix m);
 //Задача 5: транспонирует матрицу, если среди сумм элементов строк матрицы нет равных
 void fifthTask(matrix *m);
 
+//Задача 6: определяет, являются ли две матрицы взаимообратными
+bool sixthTask(matrix m1, matrix m2);
+
+
+
 
 
 
@@ -48,6 +53,9 @@ bool isUnique(long long *a, int n);
 
 //транспонирует матрицу, если среди сумм элементов строк матрицы нет равных
 void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
+
+//определяет, являются ли две матрицы взаимообратными
+bool isMutuallyInverseMatrices(matrix m1, matrix m2);
 
 
 #endif //BASICS_OF_PROGRAMMING_LABS_MATRIX_TASKS_H
