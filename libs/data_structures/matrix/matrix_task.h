@@ -47,6 +47,10 @@ int thirteenthTask(matrix *ms, int nMatrix);
 //Задание 14: выводит матрицы, имеющие наибольшее число нулевых строк.
 void fourteenthTask(matrix *ms, int nMatrix);
 
+//Задание 15: выводит матрицы с наименьшей нормой.
+void fifteenthTask (matrix *ms, int nMatrix);
+
+
 
 
 // функция-критерий для сравнения строк по максимальному элементу
@@ -134,5 +138,10 @@ int countZeroRows(matrix m);
 //выводит матрицы, имеющие наибольшее число нулевых строк
 void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
 
+//находит максимальную норму матрицы
+int getMaxNorm(matrix m);
+
+//выводит матрицы с наименьшей нормой
+void printMatricesWithMinNorm(matrix *ms, int nMatrix);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_MATRIX_TASKS_H
