@@ -781,6 +781,9 @@ void test_twelfthTask_equalElements(){
             assert(m.values[i][j] == m_return.values[i][j]);
         }
     }
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&m_return);
 }
 
 void test_twelfthTask_notSquareMatrix(){
@@ -806,6 +809,9 @@ void test_twelfthTask_notSquareMatrix(){
             assert(m.values[i][j] == m_return.values[i][j]);
         }
     }
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&m_return);
 }
 
 void test_twelfthTask_SquareMatrix(){
@@ -831,12 +837,75 @@ void test_twelfthTask_SquareMatrix(){
             assert(m.values[i][j] == m_return.values[i][j]);
         }
     }
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&m_return);
 }
 
 void test_twelfthTask(){
     test_twelfthTask_equalElements();
     test_twelfthTask_notSquareMatrix();
     test_twelfthTask_SquareMatrix();
+}
+
+void test_thirteenthTask_equalMatrices(){
+    int a[] = {0, 0,
+               0, 0,
+
+               0, 0,
+               0, 0,
+
+               0, 0,
+               0, 0,
+
+               0, 0,
+               0, 0};
+
+    matrix *ms = createArrayOfMatrixFromArray(&a, 4, 2, 2);
+
+    assert(thirteenthTask(ms, 4) == 4);
+
+    freeMemMatrix(&ms);
+}
+
+void test_thirteenthTask_noSuitableMatrices(){
+    int a[] = {7, 1,
+               1, 1,
+
+               5, 4,
+               2, 3};
+
+    matrix *ms = createArrayOfMatrixFromArray(&a, 2, 2, 2);
+
+    assert(thirteenthTask(ms, 2) == 0);
+
+    freeMemMatrix(&ms);
+}
+
+void test_thirteenthTask_SuitableMatrices(){
+    int a[] = {7, 1,
+               1, 1,
+
+               1,6,
+               2,2,
+
+               5,4,
+               2,3,
+
+               1,3,
+               7,9};
+
+    matrix *ms = createArrayOfMatrixFromArray(&a, 4, 2, 2);
+
+    assert(thirteenthTask(ms, 4) == 2);
+
+    freeMemMatrix(&ms);
+}
+
+void test_thirteenthTask(){
+    test_thirteenthTask_equalMatrices();
+    test_thirteenthTask_noSuitableMatrices();
+    test_thirteenthTask_SuitableMatrices();
 }
 
 void test(){
@@ -852,6 +921,7 @@ void test(){
     test_tenthTask();
     test_eleventhTask();
     test_twelfthTask();
+    test_thirteenthTask();
 }
 
 int main(){
