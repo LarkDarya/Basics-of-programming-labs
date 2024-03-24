@@ -4,6 +4,7 @@
 #include "matrix.c"
 #include "matrix.h"
 #include <assert.h>
+#include <math.h>
 
 //Задание 1: меняет местами строки, в которых находятся максимальный и минимальный элементы.
 void firstTask(matrix *m){
@@ -157,7 +158,7 @@ matrix getSquareOfMatrixIfSymmetric(matrix m) {
     }
 }
 
-//Задача 4: заменяет квадратную матрицу её квадратом
+//Задача 4: заменяет квадратную матрицу её квадратом.
 matrix fourthTask(matrix m){
     return getSquareOfMatrixIfSymmetric(m);
 }
@@ -208,7 +209,7 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
     }
 }
 
-//Задача 5: транспонирует матрицу, если среди сумм элементов строк матрицы нет равных
+//Задача 5: транспонирует матрицу, если среди сумм элементов строк матрицы нет равных.
 void fifthTask(matrix *m){
     transposeIfMatrixHasNotEqualSumOfRows(*m);
 }
@@ -238,7 +239,7 @@ bool isMutuallyInverseMatrices(matrix m1, matrix m2){
     return 1;
 }
 
-//Задача 6: определяет, являются ли две матрицы взаимообратными
+//Задача 6: определяет, являются ли две матрицы взаимообратными.
 bool sixthTask(matrix m1, matrix m2){
     return isMutuallyInverseMatrices(m1, m2);
 }
@@ -273,7 +274,45 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     return sum;
 }
 
-//Задача 7: находит сумму максимальных элементов всех псевдодиагоналей
+//Задача 7: находит сумму максимальных элементов всех псевдодиагоналей.
 long long seventhTask(matrix m){
     return findSumOfMaxesOfPseudoDiagonal(m);
 }
+
+//находит минимальный элемент в выделенной области
+int getMinInArea(matrix m){
+    int maxRow = 0, maxCol = 0;
+    int i, j;
+
+    for (i = 0; i < m.nRows; i++) {
+        for (j = 0; j < m.nCols; j++) {
+            if (m.values[i][j] > m.values[maxRow][maxCol]) {
+                maxRow = i;
+                maxCol = j;
+            }
+        }
+    }
+
+    int min[m.nRows * m.nCols];
+    int minVal = m.values[maxRow][maxCol];
+
+    for (i = 0; i <= maxRow; i++) {
+        for (j = 0; j < m.nCols; j++) {
+            int difference = abs(maxRow - i);
+
+            if ((abs(maxCol - j)) <= difference) {
+                if (m.values[i][j] < minVal) {
+                    minVal = m.values[i][j];
+                }
+            }
+        }
+    }
+
+    return minVal;
+}
+
+//Задача 8: находит минимальный элемент в выделенной области.
+int eighthTask(matrix m){
+    return getMinInArea(m);
+}
+
