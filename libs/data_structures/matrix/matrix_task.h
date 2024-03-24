@@ -31,6 +31,9 @@ int eighthTask(matrix m);
 //Задание 9: сортирует точки по неубыванию их расстояний до начала координат.
 void ninthTask(matrix m);
 
+//Задача 10: определяет количество классов эквивалентных строк данной прямоугольной матрицы
+int tenthTask(matrix m);
+
 
 
 // функция-критерий для сравнения строк по максимальному элементу
@@ -80,5 +83,14 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, in
 
 //сортирует по расстоянию до начала координат
 void sortByDistances(matrix m);
+
+//функция сравнения, которая используется в функции qsort() для сортировки массива long long
+int cmp_long_long(const void *pa, const void *pb);
+
+//считает количество уникальных элементов в массиве a длиной n
+int countNUnique(long long *a, int n);
+
+//считает количество эквивалентных классов по суммам строк в матрице m
+int countEqClassesByRowsSum(matrix m);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_MATRIX_TASKS_H
