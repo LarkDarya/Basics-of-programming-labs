@@ -473,7 +473,7 @@ void twelfthTask (matrix m){
     }
 }
 
-//Возвращает - "истина", если матрица отсортирована, иначе - "ложь"
+//возвращает - "истина", если матрица отсортирована, иначе - "ложь"
 bool isNonDescendingSorted(int *a, int n) {
     for (int i = 1; i < n; i++) {
         if (a[i] < a[i-1]) {
@@ -484,7 +484,7 @@ bool isNonDescendingSorted(int *a, int n) {
     return 1;
 }
 
-//Если хотя бы одна строка не является неубывающей, функция возвращает false,
+//если хотя бы одна строка не является неубывающей, функция возвращает false,
 //иначе возвращает true.
 bool hasAllNonDescendingRows(matrix m) {
     for (int i = 0; i < m.nRows; i++) {
@@ -496,7 +496,7 @@ bool hasAllNonDescendingRows(matrix m) {
     return 1;
 }
 
-//Определяет число матриц, строки которых упорядочены по неубыванию элементов
+//определяет число матриц, строки которых упорядочены по неубыванию элементов
 int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
     int count = 0;
 
@@ -512,4 +512,58 @@ int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
 //Задание 13: определяет число матриц, строки которых упорядочены по неубыванию элементов.
 int thirteenthTask(matrix *ms, int nMatrix) {
     return countNonDescendingRowsMatrices(ms, nMatrix);
+}
+
+//счетчик значений
+int countValues(const int *a, int n, int value) {
+    int count = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (a[i] == value) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+//счетчик нулевых строк
+int countZeroRows(matrix m) {
+    int count = 0;
+
+    for (int i = 0; i < m.nRows; i++) {
+        int zeroCount = countValues(m.values[i], m.nCols, 0);
+
+        if (zeroCount == m.nCols) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+//выводит матрицы, имеющие наибольшее число нулевых строк
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
+    int maxZeroRows = 0;
+
+    for (int i = 0; i < nMatrix; i++) {
+        int zeroRows = countZeroRows(ms[i]);
+
+        if (zeroRows > maxZeroRows) {
+            maxZeroRows = zeroRows;
+        }
+    }
+
+    for (int i = 0; i < nMatrix; i++) {
+        if (countZeroRows(ms[i]) == maxZeroRows) {
+            outputMatrix(ms[i]);
+        }
+
+        printf("\n");
+    }
+}
+
+//Задание 14: выводит матрицы, имеющие наибольшее число нулевых строк.
+void fourteenthTask(matrix *ms, int nMatrix) {
+    printMatrixWithMaxZeroRows(ms, nMatrix);
 }

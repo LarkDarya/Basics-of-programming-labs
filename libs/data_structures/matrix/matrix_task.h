@@ -44,6 +44,9 @@ void twelfthTask (matrix m);
 //Задание 13: определяет число матриц, строки которых упорядочены по неубыванию элементов.
 int thirteenthTask(matrix *ms, int nMatrix);
 
+//Задание 14: выводит матрицы, имеющие наибольшее число нулевых строк.
+void fourteenthTask(matrix *ms, int nMatrix);
+
 
 
 // функция-критерий для сравнения строк по максимальному элементу
@@ -112,15 +115,24 @@ position getLeftMin(matrix m);
 //заменяет предпоследнюю строку матрицы первым из столбцов, в котором находится минимальный элемент матрицы
 void swapPenultimateRow(matrix m);
 
-//Возвращает - "истина", если матрица отсортирована, иначе - "ложь"
+//возвращает - "истина", если матрица отсортирована, иначе - "ложь"
 bool isNonDescendingSorted(int *a, int n);
 
-//Если хотя бы одна строка не является неубывающей, функция возвращает false,
+//если хотя бы одна строка не является неубывающей, функция возвращает false,
 //иначе возвращает true.
 bool hasAllNonDescendingRows(matrix m);
 
-//Определяет число матриц, строки которых упорядочены по неубыванию элементов
+//определяет число матриц, строки которых упорядочены по неубыванию элементов
 int countNonDescendingRowsMatrices(matrix *ms, int nMatrix);
+
+//счетчик значений
+int countValues(const int *a, int n, int value);
+
+//счетчик нулевых строк
+int countZeroRows(matrix m);
+
+//выводит матрицы, имеющие наибольшее число нулевых строк
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
 
 
 #endif //BASICS_OF_PROGRAMMING_LABS_MATRIX_TASKS_H
