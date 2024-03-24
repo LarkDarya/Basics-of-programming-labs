@@ -279,6 +279,7 @@ long long seventhTask(matrix m){
     return findSumOfMaxesOfPseudoDiagonal(m);
 }
 
+
 //находит минимальный элемент в выделенной области
 int getMinInArea(matrix m){
     int maxRow = 0, maxCol = 0;

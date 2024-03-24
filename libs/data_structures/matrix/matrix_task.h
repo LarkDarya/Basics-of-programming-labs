@@ -70,4 +70,5 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 //находит минимальный элемент в выделенной области
 int getMinInArea(matrix m);
 
+
 #endif //BASICS_OF_PROGRAMMING_LABS_MATRIX_TASKS_H

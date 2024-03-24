@@ -562,6 +562,7 @@ void test_eighthTask_maxInFirstLine(){
     freeMemMatrix(&m);
 }
 
+
 void test_eighthTask_maxNotInFirstLine(){
     matrix m = createMatrixFromArray(
             (int[]) {
