@@ -57,6 +57,8 @@ int sixteenthTask(matrix m);
 //Задание 17: определяет индекс вектора в матрице, который имеет наибольший угол с заданным вектором.
 int seventeenthTask (matrix m, int *b);
 
+//Задача 18: Находит скалярное произведение строки, в которой находится наибольший элемент матрицы, на столбец с наименьшим элементом.
+long long eighteenthTask(matrix m);
 
 // функция-критерий для сравнения строк по максимальному элементу
 int getMax(int* a, int n);
@@ -167,5 +169,10 @@ double getCosine(int *a, int *b, int n);
 //определяет индекс вектора в матрице, который имеет наибольший угол с заданным вектором
 int getVectorIndexWithMaxAngle(matrix m, int *b);
 
+//вычисляет скалярное произведение строки i и столбца j матрицы m
+long long getScalarProductRowAndCol(matrix m, int i, int j);
+
+//находит скалярное произведение строки, в которой находится наибольший элемент матрицы, на столбец с наименьшим элементом.
+long long getSpecialScalarProduct(matrix m);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_MATRIX_TASKS_H
