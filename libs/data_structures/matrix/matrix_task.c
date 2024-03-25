@@ -404,7 +404,7 @@ int tenthTask(matrix m){
     return countEqClassesByRowsSum(m);
 }
 
-//определяет количество особых элементов матрицы
+//определяет количество особых элементов матрицы (элемент особый, если он больше суммы остальных элементов своего столбца)
 int getNSpecialElement(matrix m) {
     int count = 0;
 
@@ -426,7 +426,7 @@ int getNSpecialElement(matrix m) {
     return count;
 }
 
-//Задача 11: определяет количество особых элементов матрицы.
+//Задание 11: определяет количество особых элементов матрицы (элемент особый, если он больше суммы остальных элементов своего столбца).
 int eleventhTask(matrix m){
     return getNSpecialElement(m);
 }
@@ -611,5 +611,48 @@ void fifteenthTask (matrix *ms, int nMatrix) {
     printMatricesWithMinNorm(ms, nMatrix);
 }
 
+//находит минимальный элемент
+int min2(int a, int b) {
+    return (a < b) ? a : b;
+}
+
+//определяет количество особых элементов в матрице
+int getNSpecialElement2(matrix m) {
+    int special_elements = 0;
+
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            int is_special = 1;
+
+            for (int k = 0; k < j; k++) {
+                if (m.values[i][k] >= m.values[i][j]) {
+                    is_special = 0;
+
+                    break;
+                }
+            }
+
+            for (int k = j + 1; k < m.nCols; k++) {
+                if (m.values[i][k] <= m.values[i][j]) {
+                    is_special = 0;
+
+                    break;
+                }
+            }
+
+            if (is_special) {
+                special_elements++;
+            }
+        }
+    }
+
+    return special_elements;
+}
+
+//Задание 16: считает количество особых элементов (элемент особый если в строке слева от него находятся только
+//меньшие элементы, а справа – только бoльшие).
+int sixteenthTask(matrix m) {
+    return getNSpecialElement2(m);
+}
 
 
