@@ -59,8 +59,11 @@ void clearV(vectorVoid *v){
 }
 
 //освобождает память, выделенную вектору.
-void deleteVectorV(vectorVoid *v){
+void deleteVector(vector *v) {
     free(v->data);
+    v->data = NULL;
+    v->size = 0;
+    v->capacity = 0;
 }
 
 //проверка на то, является ли вектор пустым.
