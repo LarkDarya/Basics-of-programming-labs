@@ -54,6 +54,9 @@ void fifteenthTask (matrix *ms, int nMatrix);
 //меньшие элементы, а справа – только бoльшие).
 int sixteenthTask(matrix m);
 
+//Задание 17: определяет индекс вектора в матрице, который имеет наибольший угол с заданным вектором.
+int seventeenthTask (matrix m, int *b);
+
 
 // функция-критерий для сравнения строк по максимальному элементу
 int getMax(int* a, int n);
@@ -152,7 +155,17 @@ int min2(int a, int b);
 //определяет количество особых элементов в матрице
 int getNSpecialElement2(matrix m);
 
+//возвращает скалярное произведение двух векторов
+double getScalarProduct(int *a, int *b, int n);
 
+//находит длину вектора
+double getVectorLength(int *a, int n);
+
+//получает косинус угла между векторами
+double getCosine(int *a, int *b, int n);
+
+//определяет индекс вектора в матрице, который имеет наибольший угол с заданным вектором
+int getVectorIndexWithMaxAngle(matrix m, int *b);
 
 
 #endif //BASICS_OF_PROGRAMMING_LABS_MATRIX_TASKS_H
