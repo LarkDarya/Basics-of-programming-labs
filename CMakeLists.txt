@@ -3,9 +3,13 @@ add_library(data_structurs
         vector.h
         vectorVoid.h
         vectorVoid.c
-        matrix/matrix.c
+        libs/data_structures/matrix/matrix.c
         <<<<<<< HEAD
         libs/data_structures/matrix/matrix_task.h
+        libs/string/tasks/string_.c
+        libs/string/tasks/string_.h
+        libs/string/tasks/string_.c
+        libs/string/tasks/string_.h
 )
 =======
 )
