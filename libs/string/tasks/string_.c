@@ -4,7 +4,13 @@
 
 //возвращает количество символов в строке, не считая ноль-символ
 size_t strlen_(const char *begin){
-    return 2;
+    char *end = begin;
+
+    while (*end != '\0') {
+        end++;
+    }
+
+    return end - begin;
 }
 
 
