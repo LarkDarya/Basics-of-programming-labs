@@ -18,8 +18,15 @@ void test_strlen_(){
     assert(strlen_(s5) == 3);
 }
 
+void test_find(){
+    char b1 = "H", e1 = "l";
+    char s1 = "Hello";
+    assert(find(b1, e1, s1) == 0);
+}
+
 void test(){
     test_strlen_();
+    test_find();
 }
 
 int main(){
