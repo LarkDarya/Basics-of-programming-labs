@@ -25,7 +25,7 @@ char* find(char *begin, char *end, int ch) {
 //возвращает указатель на первый символ, отличный от пробельных, расположенный на ленте памяти,
 //начиная с begin и заканчивая ноль-символом
 char* findNonSpace(char *begin){
-    while (*begin != '\0' && *begin == ' ') {
+    while ((*begin != '\0') && (*begin == ' ' || *begin == '\t' || *begin == '\r' || *begin == '\n')) {
         begin++;
     }
 

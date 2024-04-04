@@ -31,11 +31,13 @@ void test_find(){
 }
 
 void test_findNonSpace(){
-    char test_string[] = " Love is a fairy tale";
-    char *found = findNonSpace(test_string);
-    printf("%d", *found);
-    assert(found != test_string && *found == 76);
+    char test_string1[] = " Love is a book";
+    char *found1 = findNonSpace(test_string1);
+    assert(found1 != test_string1 && *found1 == 76);
 
+    char test_string2[] = " \t \n And the book is a novel";
+    char *found2 = findNonSpace(test_string2);
+    assert(found2 != test_string2 && *found2 == 65);
 }
 
 void test(){
