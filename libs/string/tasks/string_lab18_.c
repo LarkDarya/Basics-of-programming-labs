@@ -5,16 +5,6 @@
 #include <memory.h>
 #include <stdbool.h>
 
-//находит конечный элемент строки
-char* getEndOfString(char *s) {
-    char *end = s;
-
-    while (*end != '\0') {
-        end++;
-    }
-
-    return end;
-}
 
 //удаляет из строки все пробельные символы
 void removeNonLetters(char *s) {
@@ -35,7 +25,16 @@ void assertString(const char *expected, char *got, char const *fileName, char co
     }
 }
 
-//сокращает количество пробелов между словами данного предложения до одного
+
+
+
+
+
+
+
+
+
+кращает количество пробелов между словами данного предложения до одного
 void removeExtraSpaces(char *s){
     char *begin = s;
     char *destination = begin;
