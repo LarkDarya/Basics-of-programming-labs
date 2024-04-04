@@ -23,4 +23,9 @@ char* findSpaceReverse(char *rbegin, const char *rend);
 //проверка строк на равенство
 int strcmp(const char *lhs, const char *rhs);
 
+//записывает по адресу beginDestination фрагмент памяти, начиная с адреса beginSource до endSource.
+//возвращает указатель на следующий свободный фрагмент памяти в destination
+char* copy(const char *beginSource, const char *endSource, char *beginDestination);
+
+
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING__H
