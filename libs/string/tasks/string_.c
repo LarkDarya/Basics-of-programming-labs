@@ -35,7 +35,7 @@ char* findNonSpace(char *begin){
 //возвращает указатель на первый справа символ, отличный от пробельных,
 //расположенный на ленте памяти, начиная с rbegin
 char* findNonSpaceReverse(char *rbegin, const char *rend) {
-    while ((rbegin != rend) && (*rbegin == ' ' ||  *rbegin == '\t' || *rbegin == '\r' || *rbegin == '\n' || *rbegin == '\0')) {
+    while ((rbegin != rend) && (*rbegin == ' ' || *rbegin == '\t' || *rbegin == '\r' || *rbegin == '\n' || *rbegin == '\0')) {
         rbegin--;
     }
 
@@ -45,5 +45,9 @@ char* findNonSpaceReverse(char *rbegin, const char *rend) {
 //возвращает указатель на первый пробельный символ справа, расположенный
 //на ленте памяти, начиная с rbegin и заканчивая rend.
 char* findSpaceReverse(char *rbegin, const char *rend){
-    return 32;
+    while ((rbegin != rend) && (*rbegin != ' ') && (*rbegin != '\t') && (*rbegin != '\r') && (*rbegin != '\n') || *rbegin == '\0'){
+        rbegin--;
+    }
+
+    return rbegin;
 }

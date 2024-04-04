@@ -54,6 +54,10 @@ void test_findSpaceReverse(){
     char test_string1[] = "Deception is a lie";
     char *found1 = findSpaceReverse(test_string1 + 19, test_string1);
     assert(found1 != test_string1 && *found1 == 32);
+
+    char test_string2[] = "And lying is a \t \npain";
+    char *found2 = findSpaceReverse(test_string2 + 22, test_string2);
+    assert(found2 != test_string2 && *found2 == 10);
 }
 
 void test(){
