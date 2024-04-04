@@ -30,10 +30,18 @@ void test_find(){
     assert(found3 != test_string3 + 3 && *found3 == 50);
 }
 
+void test_findNonSpace(){
+    char test_string[] = " Love is a fairy tale";
+    char *found = findNonSpace(test_string);
+    printf("%d", *found);
+    assert(found != test_string && *found == 76);
+
+}
 
 void test(){
     test_strlen_();
     test_find();
+    test_findNonSpace();
 }
 
 int main(){
