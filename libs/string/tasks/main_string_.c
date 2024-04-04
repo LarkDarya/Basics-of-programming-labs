@@ -89,7 +89,7 @@ int isUpperCase(int c) {
     return (c >= 'A' && c <= 'Z');
 }
 
-void testCopyIf() {
+void test_copyIf() {
     char *source = "Professor of Magic";
     char destination[20];
     char *endOfDestination = copyIf(source, source + 19, destination, isUpperCase);
@@ -99,6 +99,12 @@ void testCopyIf() {
     assert(strcmp(destination, expectedResult) == 0);
 }
 
+void test_copyIfReverse(){
+    char source[] = "The One Who Cannot Be Named";
+    char dest[28];
+    char *result = copyIfReverse(source + 28, source, dest, &isUpperCase);
+    assert(*result == 78);
+}
 
 void test(){
     test_strlen_();
@@ -108,7 +114,8 @@ void test(){
     test_findSpaceReverse();
     test_strcmp();
     test_copy();
-    testCopyIf();
+    test_copyIf();
+    test_copyIfReverse();
 }
 
 int main(){
