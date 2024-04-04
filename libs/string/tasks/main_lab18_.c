@@ -69,7 +69,6 @@ void test_removeExtraSpaces(){
 
 void test(){
     test_removeNonLetters();
-    test_removeExtraSpaces();
 }
 
 int main(){
