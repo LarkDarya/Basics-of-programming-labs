@@ -8,8 +8,11 @@
 //находит конечный элемент строки
 char* getEndOfString(char *s) {
     char *end = s;
-    while (*end != '\0')
+
+    while (*end != '\0') {
         end++;
+    }
+
     return end;
 }
 
@@ -22,11 +25,33 @@ void removeNonLetters(char *s) {
 
 //функция тестирования, которая даёт информацию о том, где именно произошла ошибка
 void assertString(const char *expected, char *got, char const *fileName, char const *funcName, int line){
-    if (strcmp(expected, got)) {
+    if (strcmp(expected, got)){
         fprintf(stderr, "File %s\n", fileName);
         fprintf(stderr, "%s - failed on line %d\n", funcName, line);
         fprintf(stderr, "Expected: \"%s\"\n", expected);
         fprintf(stderr, "Got: \"%s\"\n\n", got);
-    } else
+    } else {
         fprintf(stderr, "%s - OK\n", funcName);
+    }
+}
+
+//сокращает количество пробелов между словами данного предложения до одного
+void removeExtraSpaces(char *s){
+    char *begin = s;
+    char *destination = begin;
+    char last = *begin;
+
+    while (*begin != '\0') {
+        if (*begin != last || last != ' ') {
+            *destination++ = *begin;
+        }
+
+        last = *begin++;
+    }
+
+    if (last == ' ') {
+        destination--;
+    }
+
+    *destination = '\0';
 }
