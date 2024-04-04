@@ -17,10 +17,17 @@ void test_strlen_(){
 }
 
 void test_find(){
-    char test_string[] = "Space";
-    char *found = find(test_string, test_string + 6, 'S');
-    printf("%d", *found);
-    assert(*found == 83);
+    char test_string1[] = "Space";
+    char *found1 = find(test_string1, test_string1 + 6, 'S');
+    assert(*found1 == 83);
+
+    char test_string2[] = "Space";
+    char *found2 = find(test_string2, test_string2 + 2, 'c');
+    assert(found2 == test_string2 + 2);
+
+    char test_string3[] = "012 784 245";
+    char *found3 = find(test_string3, test_string2 + 3, '2');
+    assert(found3 != test_string3 + 3 && *found3 == 50);
 }
 
 

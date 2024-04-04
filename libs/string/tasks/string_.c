@@ -15,6 +15,10 @@ size_t strlen_(const char *begin) {
 // возвращает указатель на первый элемент с кодом ch, расположенным на ленте памяти между
 //адресами begin и end не включая end
 char* find(char *begin, char *end, int ch) {
+    while (begin != end && *begin != ch) {
+        begin++;
+    }
+
     return begin;
 }
 
