@@ -35,5 +35,4 @@ char* copyIf(char *beginSource, const char *endSource, char *beginDestination, i
 //заканчивая rendSource, удовлетворяющие функции-предикату f
 char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int));
 
-
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING__H
