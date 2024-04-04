@@ -50,11 +50,18 @@ void test_findNonSpaceReverse(){
     assert(found2 != test_string2 && *found2 == 110);
 }
 
+void test_findSpaceReverse(){
+    char test_string1[] = "Deception is a lie";
+    char *found1 = findSpaceReverse(test_string1 + 19, test_string1);
+    assert(found1 != test_string1 && *found1 == 32);
+}
+
 void test(){
     test_strlen_();
     test_find();
     test_findNonSpace();
     test_findNonSpaceReverse();
+    test_findSpaceReverse();
 }
 
 int main(){
