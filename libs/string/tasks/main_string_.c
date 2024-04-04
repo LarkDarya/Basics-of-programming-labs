@@ -85,6 +85,21 @@ void test_copy(){
     assert(strcmp(source2, destination2) == 0);
 }
 
+int isUpperCase(int c) {
+    return (c >= 'A' && c <= 'Z');
+}
+
+void testCopyIf() {
+    char *source = "Professor of Magic";
+    char destination[20];
+    char *endOfDestination = copyIf(source, source + 19, destination, isUpperCase);
+    *endOfDestination = '\0';
+
+    const char *expectedResult = "PM";
+    assert(strcmp(destination, expectedResult) == 0);
+}
+
+
 void test(){
     test_strlen_();
     test_find();
@@ -93,6 +108,7 @@ void test(){
     test_findSpaceReverse();
     test_strcmp();
     test_copy();
+    testCopyIf();
 }
 
 int main(){
