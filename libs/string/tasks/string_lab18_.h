@@ -13,6 +13,11 @@ typedef struct WordDescriptor {
     char *end; // позиция первого символа, после последнего символа слова
 } WordDescriptor;
 
+typedef struct BagOfWords {
+    WordDescriptor words[MAX_N_WORDS_IN_STRING];
+    size_t size;
+} BagOfWords;
+
 //находит конечный элемент строки
 char* getEndOfString(char *s);
 
@@ -69,5 +74,11 @@ char* strtok_(char* str, const char* delim);
 
 //определяет, упорядочены ли лексикографически слова данного предложения
 bool areWordsOrdered(char *s);
+
+//получает позиции начала и конца каждого слова строки
+void getBagOfWords(BagOfWords *bag, char *s);
+
+//выводит слова данной строки в обратном порядке по одному в строке экрана
+void reverseWordsBag(char *s);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
