@@ -12,4 +12,7 @@ void removeNonLetters(char *s);
 //функция тестирования, которая даёт информацию о том, где именно произошла ошибка
 void assertString(const char *expected, char *got, char const *fileName, char const *funcName, int line);
 
+//сокращает количество пробелов между словами данного предложения до одного
+void removeExtraSpaces(char *s);
+
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
