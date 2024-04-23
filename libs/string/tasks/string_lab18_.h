@@ -54,4 +54,7 @@ int getWordReverse(char *rbegin, char *rend, WordDescriptor *word);
 //преобразовывает строку, заменяя каждую цифру соответствующим ей числом пробелов
 void replacesNumbersWithSpaces(char *input, char *output);
 
+//заменяет все вхождения слова 𝑤1 на слово 𝑤2
+void replace(char *source, char *w1, char *w2);
+
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
