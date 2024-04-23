@@ -1,4 +1,5 @@
 #include "string_.h"
+#include <stdbool.h>
 
 #ifndef BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
 #define BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
@@ -56,5 +57,17 @@ void replacesNumbersWithSpaces(char *input, char *output);
 
 //заменяет все вхождения слова 𝑤1 на слово 𝑤2
 void replace(char *source, char *w1, char *w2);
+
+//проверяет слова на равенство
+bool areWordsEqual(WordDescriptor w1, WordDescriptor w2);
+
+//ищет первое вхождение любого символа из строки delim в строке str и возвращает указатель на этот символ
+char* strpbrk_(const char* str, const char* delim);
+
+//делит строку str на токены с использованием строки delim в качестве разделителя
+char* strtok_(char* str, const char* delim);
+
+//определяет, упорядочены ли лексикографически слова данного предложения
+bool areWordsOrdered(char *s);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H

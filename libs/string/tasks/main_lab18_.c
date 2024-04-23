@@ -181,12 +181,40 @@ void test_replace(){
     test_replace_wordNotInString();
 }
 
+void test_areWordsOrdered_lineEmpty(){
+    char s[] = "";
+    assert(areWordsOrdered(s) == 1);
+}
+
+void test_areWordsOrdered_oneWord(){
+    char s[] = "eyes";
+    assert(areWordsOrdered(s) == 1);
+}
+
+void test_areWordsOrdered_equalWord(){
+    char s[] = "breathe breathe";
+    assert(areWordsOrdered(s) == 1);
+}
+
+void test_areWordsOrdered_unorderedString(){
+    char s[] = "banana apple cherry";
+    assert(areWordsOrdered(s) == 0);
+}
+
+void test_areWordsOrdered(){
+    test_areWordsOrdered_lineEmpty();
+    test_areWordsOrdered_oneWord();
+    test_areWordsOrdered_equalWord();
+    test_areWordsOrdered_unorderedString();
+}
+
 void test(){
     test_removeNonLetters();
     test_removeExtraSpaces();
     test_digitsToStart();
     test_replacesNumbersWithSpaces();
     test_replace();
+    test_areWordsOrdered();
 }
 
 int main(){
