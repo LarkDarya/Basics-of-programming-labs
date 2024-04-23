@@ -81,4 +81,10 @@ void getBagOfWords(BagOfWords *bag, char *s);
 //выводит слова данной строки в обратном порядке по одному в строке экрана
 void reverseWordsBag(char *s);
 
+//проверяет, является ли заданное слово палиндромом
+bool isWordPalindrome(char *begin, char *end);
+
+//считает количество палиндромов в строке, разделенной запятыми
+int howManyWordsPalindromes(char *s);
+
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
