@@ -4,6 +4,8 @@
 #define BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
 
 #define MAX_STRING_SIZE 100
+#define MAX_N_WORDS_IN_STRING 100
+#define MAX_WORD_SIZE 20
 
 typedef struct WordDescriptor {
     char *begin; // позиция начала слова
@@ -49,5 +51,7 @@ void digitsToStart(char *s);
 //будут записаны позиции начала слова, и первого символа конца слова
 int getWordReverse(char *rbegin, char *rend, WordDescriptor *word);
 
+//преобразовывает строку, заменяя каждую цифру соответствующим ей числом пробелов
+void replacesNumbersWithSpaces(char *input, char *output);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
