@@ -171,4 +171,12 @@ int is_palindrome(char *word);
 // удаляет слова-палиндромы из строки
 void removePalindromes(char *str);
 
+//создает структуру BagOfWords из строки
+BagOfWords *create_bag_of_words(char *s);
+
+//дополняет строку, содержащую меньшее количество слов, последними
+//словами строки, в которой содержится большее количество слов
+void append(char *s1, char *s2);
+
+
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
