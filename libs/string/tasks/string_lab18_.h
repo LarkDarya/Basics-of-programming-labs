@@ -165,4 +165,10 @@ char* strstr_(char* haystack, char* needle);
 // первой строке, которое есть во второй строке) в первой строке
 char* findWordBefore(char *s1, char *s2);
 
+//проверяет, является ли слово палиндромом
+int is_palindrome(char *word);
+
+// удаляет слова-палиндромы из строки
+void removePalindromes(char *str);
+
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
