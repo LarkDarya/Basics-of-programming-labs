@@ -87,4 +87,16 @@ bool isWordPalindrome(char *begin, char *end);
 //считает количество палиндромов в строке, разделенной запятыми
 int howManyWordsPalindromes(char *s);
 
+//копирует строку
+void strcpy_(char *dest, const char *src);
+
+//находит последнее вхождение символа в строку
+char *strchr_(const char *str, int c);
+
+//разбивает строки на токены (слова) с использованием разделителей
+char* my_strtok_r(char* str, const char* delim, char** saveptr);
+
+//получает строку, в которой чередуются слова первой и второй строки
+void mergeStrings(char *str1, char *str2, char *result);
+
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
