@@ -158,4 +158,11 @@ void removeLastSpace(char *str);
 //получает строку из слов, которые отличны от последнего слова
 char* getWordsDifferentFromLast(char *str);
 
+//ищет подстроку в строке
+char* strstr_(char* haystack, char* needle);
+
+//находит слово, предшествующее первому вхождению w (первое слово в
+// первой строке, которое есть во второй строке) в первой строке
+char* findWordBefore(char *s1, char *s2);
+
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
