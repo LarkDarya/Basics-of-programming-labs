@@ -178,5 +178,7 @@ BagOfWords *create_bag_of_words(char *s);
 //словами строки, в которой содержится большее количество слов
 void append(char *s1, char *s2);
 
+//определяет, входит ли в данную строку каждая буква данного слова
+int checkWordInString(char *word, char *str);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
