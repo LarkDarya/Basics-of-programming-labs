@@ -149,4 +149,13 @@ char *my_strdup(const char *str);
 //определяет, есть ли в данной строке пара слов, составленных из одинакового набора букв
 int findPairWithSameLetters(char *str);
 
+//объединяет строки
+char *strcat_(char *dest, const char *src);
+
+//функция удаляет пробел в конце строки
+void removeLastSpace(char *str);
+
+//получает строку из слов, которые отличны от последнего слова
+char* getWordsDifferentFromLast(char *str);
+
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
