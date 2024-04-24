@@ -7,6 +7,7 @@
 #define MAX_STRING_SIZE 100
 #define MAX_N_WORDS_IN_STRING 100
 #define MAX_WORD_SIZE 20
+#define MAX_WORDS 100
 
 typedef struct WordDescriptor {
     char *begin; // позиция начала слова
@@ -138,5 +139,14 @@ WordDescriptor lastWordInFirstStringInSecondString(char *s1, char *s2);
 
 //проверяет есть ли в строке повторяющиеся слова
 bool hasDuplicateWords(char* sentence);
+
+//возвращает новую строку, содержащую отсортированные по алфавиту символы из исходной строки
+char* sortWord(char *word);
+
+//выделяет память под новую строку, копирует содержимое строки в новую строку
+char *my_strdup(const char *str);
+
+//определяет, есть ли в данной строке пара слов, составленных из одинакового набора букв
+int findPairWithSameLetters(char *str);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
