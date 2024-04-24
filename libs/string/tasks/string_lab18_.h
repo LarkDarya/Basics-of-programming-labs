@@ -118,4 +118,23 @@ void printWordBeforeFirstWordWithA(char *s);
 //находит слово данной строки, предшествующее первому из слов, содержащих букву "а"
 WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDescriptor *w);
 
+//сравнивает строки с ограничением количества сравниваемых символов
+int strncmp_(const char *s1, const char *s2, int n);
+
+//копирует строки c ограничением длины
+char *strncpy_(char *destination, const char *source, int num);
+
+//вычисляет длину слова, копирует его из предложения в строку
+void wordDescriptorToString(WordDescriptor word, char *destination);
+
+//разбивает строку на слова
+BagOfWords createBagOfWordsFromString(char *s);
+
+//проверяет если ли в массиве слов нужное слово
+int isWordInBagOfWords(WordDescriptor word, BagOfWords bag);
+
+//определяет последнее из слов первой строки, которое есть во второй строке
+WordDescriptor lastWordInFirstStringInSecondString(char *s1, char *s2);
+
+
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
