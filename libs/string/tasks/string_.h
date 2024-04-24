@@ -1,6 +1,8 @@
 #ifndef BASICS_OF_PROGRAMMING_LABS_STRING__H
 #define BASICS_OF_PROGRAMMING_LABS_STRING__H
 
+#include <stddef.h>
+
 //возвращает количество символов в строке, не считая ноль-символ
 size_t strlen_(const char *begin);
 

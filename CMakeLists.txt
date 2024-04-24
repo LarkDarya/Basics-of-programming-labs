@@ -8,8 +8,6 @@ add_library(data_structurs
         libs/data_structures/matrix/matrix_task.h
         libs/string/tasks/string_.c
         libs/string/tasks/string_.h
-        libs/string/tasks/string_.c
-        libs/string/tasks/string_.h
 )
 =======
 )
