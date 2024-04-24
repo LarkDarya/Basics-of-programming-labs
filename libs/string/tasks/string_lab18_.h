@@ -18,6 +18,13 @@ typedef struct BagOfWords {
     size_t size;
 } BagOfWords;
 
+typedef enum WordBeforeFirstWordWithAReturnCode {
+    FIRST_WORD_WITH_A,
+    NOT_FOUND_A_WORD_WITH_A,
+    WORD_FOUND,
+    EMPTY_STRING
+} WordBeforeFirstWordWithAReturnCode;
+
 //находит конечный элемент строки
 char* getEndOfString(char *s);
 
@@ -104,5 +111,11 @@ void reverse(char *begin, char *end);
 
 //обращает порядок слов в строке
 void reverseWords(char *str);
+
+//выводит слово данной строки, предшествующее первому из слов, содержащих букву "а"
+void printWordBeforeFirstWordWithA(char *s);
+
+//находит слово данной строки, предшествующее первому из слов, содержащих букву "а"
+WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDescriptor *w);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H

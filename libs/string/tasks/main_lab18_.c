@@ -313,12 +313,26 @@ void test_reverseWords_difWords(){
     ASSERT_STRING( "cherry banana apple", p);
 }
 
-
 void test_reverseWords(){
     test_reverseWords_stringsEmpty();
     test_reverseWords_oneSymbol();
     test_reverseWords_equalSymbols();
     test_reverseWords_difWords();
+}
+
+void test_getWordBeforeFirstWordWithA(){
+    WordDescriptor word;
+    char s1[] = "";
+    assert(getWordBeforeFirstWordWithA(s1, &word) == EMPTY_STRING);
+
+    char s2[] = "ABC";
+    assert(getWordBeforeFirstWordWithA(s2, &word) == FIRST_WORD_WITH_A);
+
+    char s3[] = "BC A";
+    assert(getWordBeforeFirstWordWithA(s3, &word) == WORD_FOUND);
+
+    char s4[] = "B Q WE YR OW  IUWR";
+    assert(getWordBeforeFirstWordWithA(s4, &word) == NOT_FOUND_A_WORD_WITH_A);
 }
 
 void test(){
@@ -331,6 +345,7 @@ void test(){
     test_howManyWordsPalindromes();
     test_mergeString();
     test_reverseWords();
+    test_getWordBeforeFirstWordWithA();
 }
 
 int main(){
