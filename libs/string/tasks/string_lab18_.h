@@ -99,4 +99,10 @@ char* my_strtok_r(char* str, const char* delim, char** saveptr);
 //получает строку, в которой чередуются слова первой и второй строки
 void mergeStrings(char *str1, char *str2, char *result);
 
+//обращает порядок символов в строке между двумя указателями
+void reverse(char *begin, char *end);
+
+//обращает порядок слов в строке
+void reverseWords(char *str);
+
 #endif //BASICS_OF_PROGRAMMING_LABS_STRING_LAB18__H
