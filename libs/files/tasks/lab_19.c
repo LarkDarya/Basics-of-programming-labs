@@ -31,7 +31,7 @@ void assertTXT(const char *file1, const char *file2) {
         }
     }
 
-    printf("Всё работает!");
+    printf("Всё работает! \n");
 }
 
 //Задание 1: в файле, где хранятся квадратные матрицы, транспонировать их
@@ -42,6 +42,7 @@ int task_1(const char *str1) {
 
     //открываем исходный файл для чтения
     inputFile = fopen("C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/original_task_1.txt", "r");
+
     if (inputFile == NULL) {
         printf("Ошибка открытия файла\n");
 
@@ -50,6 +51,7 @@ int task_1(const char *str1) {
 
     //открываем новый файл для записи
     outputFile = fopen("C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/converted_task_1.txt", "w");
+
     if (outputFile == NULL) {
         printf("Ошибка открытия файла\n");
         fclose(inputFile);
@@ -81,3 +83,26 @@ int task_1(const char *str1) {
     return 0;
 }
 
+//Задание 2: в файле, где записаны вещественные числа с различным количеством цифр
+// после запятой, оставить только две цифры после запятой
+int task_2(const char *str) {
+    FILE *inputFile, *outputFile;
+    float number;
+
+    inputFile = fopen("C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/original_task_2.txt", "r");
+    outputFile = fopen("C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/converted_task_2.txt", "w");
+
+    if (inputFile == NULL || outputFile == NULL) {
+        printf("Ошибка открытия файлов.\n");
+        return 1;
+    }
+
+    while (fscanf(inputFile, "%f", &number) == 1) {
+        fprintf(outputFile, "%.2f\n", number);
+    }
+
+    fclose(inputFile);
+    fclose(outputFile);
+
+    return 0;
+}
