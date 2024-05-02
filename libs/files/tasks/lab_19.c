@@ -5,6 +5,7 @@
 #include "C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/data_structures/matrix/matrix.c"
 
 #define MAX_FILE_SIZE 1024
+#define MAX_LENGTH 100
 
 //сравнивает два файла на равенство
 void assertTXT(const char *file1, const char *file2) {
@@ -151,7 +152,7 @@ int task_3(const char *str) {
                 return 1;
             }
         } else {
-            printf("Ошибка: неверный оператор1\n");
+            printf("Ошибка: неверный оператор\n");
             fclose(file1);
             return 1;
         }
@@ -233,7 +234,7 @@ int task_3(const char *str) {
                 return 1;
             }
         } else {
-            printf("Ошибка: неверный оператор2\n");
+            printf("Ошибка: неверный оператор\n");
             fclose(file1);
             return 1;
         }
@@ -265,12 +266,58 @@ int task_4(const char* sourceFilename, const char* destinationFilename, const ch
         return 1;
     }
 
-    char word[MAX_FILE_SIZE];
+    char word[MAX_LENGTH];
 
     while (fscanf(sourceFile, "%s", word) == 1) {
         if (strstr(word, sequence) != NULL) {
             fprintf(destinationFile, "%s\n", word);
         }
+    }
+
+    fclose(sourceFile);
+    fclose(destinationFile);
+
+    return 0;
+}
+
+//Задание 5: преобразовать файл, оставив в каждой строке только самое длинное слово
+int task_5(const char* sourceFilename, const char* destinationFilename) {
+    FILE *sourceFile, *destinationFile;
+
+    sourceFile = fopen(sourceFilename, "r");
+    if (sourceFile == NULL) {
+        printf("Ошибка открытия исходного файла\n");
+        return 1;
+    }
+
+    destinationFile = fopen(destinationFilename, "w");
+    if (destinationFile == NULL) {
+        printf("Ошибка открытия файла назначения\n");
+        fclose(sourceFile);
+        return 1;
+    }
+
+    char line[MAX_LENGTH];
+    char longestWord[MAX_LENGTH];
+    int maxLength = 0;
+
+    while (fgets(line, sizeof(line), sourceFile)) {
+        char* word = strtok(line, " ");
+        char* lastWord = NULL;
+        while (word != NULL) {
+            int length = strlen(word);
+            if (length > maxLength) {
+                maxLength = length;
+                strcpy(longestWord, word);
+            }
+
+            lastWord = word;
+            word = strtok(NULL, " ");
+        }
+
+        fprintf(destinationFile, "%s\n", longestWord);
+
+        maxLength = 0;
     }
 
     fclose(sourceFile);
