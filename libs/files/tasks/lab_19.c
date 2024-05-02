@@ -247,3 +247,34 @@ int task_3(const char *str) {
 
     return 0;
 }
+
+//Задание 4: сохранить в файле только те слова, которые содержат данную последовательность символов
+int task_4(const char* sourceFilename, const char* destinationFilename, const char* sequence) {
+    FILE *sourceFile, *destinationFile;
+
+    sourceFile = fopen(sourceFilename, "r");
+    if (sourceFile == NULL) {
+        printf("Ошибка открытия исходного файла\n");
+        return 1;
+    }
+
+    destinationFile = fopen(destinationFilename, "w");
+    if (destinationFile == NULL) {
+        printf("Ошибка открытия файла назначения\n");
+        fclose(sourceFile);
+        return 1;
+    }
+
+    char word[MAX_FILE_SIZE];
+
+    while (fscanf(sourceFile, "%s", word) == 1) {
+        if (strstr(word, sequence) != NULL) {
+            fprintf(destinationFile, "%s\n", word);
+        }
+    }
+
+    fclose(sourceFile);
+    fclose(destinationFile);
+
+    return 0;
+}
