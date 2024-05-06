@@ -412,3 +412,35 @@ void task_7(const char *filename) {
     fclose(file);
     fclose(result_file);
 }
+
+//Задание 8: преобразовать файл, заменив в нём каждую матрицу, не являющуюся симметричной, транспонированной
+void task_8(const char *filename) {
+    FILE *file = fopen(filename, "rb");
+
+    if (file == NULL) {
+        printf("Ошибка открытия исходного файла\n");
+        exit(-3);
+    }
+
+    FILE *result_file = fopen("C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/converted_task_8.txt", "wb");
+
+    if (result_file == NULL) {
+        printf("Ошибка открытия файла назначения\n");
+        fclose(file);
+        exit(-3);
+    }
+
+    matrix m;
+
+    while (fread(&m, sizeof(matrix), 1, file)) {
+        if (!isSymmetricMatrix(&m)) {
+            transposeMatrix(&m);
+            fwrite(&m, sizeof(matrix), 1, result_file);
+        } else {
+            fwrite(&m, sizeof(matrix), 1, result_file);
+        }
+    }
+
+    fclose(file);
+    fclose(result_file);
+}

@@ -74,6 +74,15 @@ void test_task_7() {
     assertTXT(str2, str3);
 }
 
+void test_task_8() {
+    const char *str1 = "C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/original_task_8.txt";
+    const char *str2 = "C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/converted_task_8.txt";
+    const char *str3 = "C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/for_verification_task_8.txt";
+    task_8(str1);
+
+    assertTXT(str2, str3);
+}
+
 void test(){
     test_task_1();
     test_task_2();
@@ -82,6 +91,7 @@ void test(){
     test_task_5();
     test_task_6();
     test_task_7();
+    test_task_8();
 }
 
 int main(){
