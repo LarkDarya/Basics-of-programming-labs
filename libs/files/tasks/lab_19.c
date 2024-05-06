@@ -345,6 +345,7 @@ int pow_(int base, int exp) {
 //Задание 6: удалить многочлены с корнем x из бинарного файла
 void task_6(const char *filename, int x) {
     FILE *file = fopen(filename, "rb");
+
     if (file == NULL) {
         printf("Ошибка открытия исходного файла\n");
         exit(-3);
@@ -368,4 +369,46 @@ void task_6(const char *filename, int x) {
 
     fclose(file);
     fclose(temp_file);
+}
+
+//Задание 7: записать в файле сначала положительные, а затем отрицательные
+//числа, сохраняя порядок их следования
+void task_7(const char *filename) {
+    FILE *file = fopen(filename, "rb");
+
+    if (file == NULL) {
+        printf("Ошибка открытия исходного файла\n");
+        exit(-3);
+    }
+
+    FILE *result_file = fopen("C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/converted_task_7.txt", "wb");
+
+    if (result_file == NULL) {
+        printf("Ошибка открытия файла назначения\n");
+        fclose(file);
+        exit(-3);
+    }
+
+    int positive_number;
+
+    while (fread(&positive_number, sizeof(positive_number), 1, file)) {
+        if (positive_number > 0) {
+            fwrite(&positive_number, sizeof(positive_number), 1, result_file);
+        }
+    }
+
+    fclose(file);
+
+    file = fopen(filename, "rb");
+
+    int negative_number;
+
+    while (fread(&negative_number, sizeof(negative_number), 1, file)) {
+        if (negative_number < 0) {
+            fwrite(&negative_number, sizeof(negative_number), 1, result_file);
+        }
+    }
+
+    fclose(file);
+    fclose(result_file);
 }
