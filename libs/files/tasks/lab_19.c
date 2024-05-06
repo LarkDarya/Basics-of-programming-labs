@@ -12,6 +12,11 @@ typedef struct {
     int coefficient;
 } Polynomial;
 
+typedef struct {
+    char *initials;
+    int score;
+} Sportsman;
+
 //сравнивает два файла на равенство
 void assertTXT(const char *file1, const char *file2) {
     FILE *f1 = fopen(file1, "r");
@@ -439,6 +444,57 @@ void task_8(const char *filename) {
         } else {
             fwrite(&m, sizeof(matrix), 1, result_file);
         }
+    }
+
+    fclose(file);
+    fclose(result_file);
+}
+
+//добавляет нового спортсмена в массив
+void appendS(Sportsman *a, size_t *const size, Sportsman value) {
+    a[*size] = (Sportsman) value;
+    (*size)++;
+}
+
+//Задание 9: В бинарном файле структур хранится информация о спортсменах: Ф.И.О., наилучший результат.
+//Требуется сформировать команду из n лучших спортсменов.
+//Преобразовать файл, сохранив в нем информацию только о членах команды.
+void task_9(const char *filename, int n) {
+    FILE *file = fopen(filename, "rb");
+    if (file == NULL) {
+        printf("Ошибка открытия исходного файла\n");
+        exit(-3);
+    }
+
+    FILE *result_file = fopen("C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/converted_task_8.txt", "wb");
+    if (result_file == NULL) {
+        printf("Ошибка открытия файла назначения\n");
+        fclose(file);
+        exit(-3);
+    }
+
+    size_t size = 0;
+    Sportsman persons[MAX_LENGTH];
+    Sportsman person;
+
+    while (fread(&person, sizeof(Sportsman), 1, file)) {
+        appendS(persons, &size, person);
+    }
+
+    for (int i = 0; i < n; ++i) {
+        Sportsman temp_player = {NULL, -999};
+        int idx = 0;
+
+        for (int j = 0; j < size; ++j) {
+            if (persons[j].score > temp_player.score) {
+                temp_player.score = persons[j].score;
+                temp_player.initials = persons[j].initials;
+                idx = j;
+            }
+        }
+
+        persons[idx].score = -999;
+        fwrite(&temp_player, sizeof(Sportsman), 1, result_file);
     }
 
     fclose(file);
