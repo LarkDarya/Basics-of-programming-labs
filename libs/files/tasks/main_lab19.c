@@ -56,12 +56,22 @@ void test_task_5() {
     }
 }
 
+void test_task_6() {
+    const char *str1 = "C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/original_task_6.txt";
+    const char *str2 = "C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/converted_task_6.txt";
+    const char *str3 = "C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/for_verification_task_6.txt";
+    task_6(str1, 2);
+
+    assertTXT(str2, str3);
+}
+
 void test(){
     test_task_1();
     test_task_2();
     test_task_3();
     test_task_4();
     test_task_5();
+    test_task_6();
 }
 
 int main(){

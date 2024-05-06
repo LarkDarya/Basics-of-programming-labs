@@ -7,6 +7,11 @@
 #define MAX_FILE_SIZE 1024
 #define MAX_LENGTH 100
 
+typedef struct {
+    int power;
+    int coefficient;
+} Polynomial;
+
 //сравнивает два файла на равенство
 void assertTXT(const char *file1, const char *file2) {
     FILE *f1 = fopen(file1, "r");
@@ -324,4 +329,43 @@ int task_5(const char* sourceFilename, const char* destinationFilename) {
     fclose(destinationFile);
 
     return 0;
+}
+
+//возводит число в степень
+int pow_(int base, int exp) {
+    int result = 1;
+    while (exp > 0) {
+        result *= base;
+        exp--;
+    }
+
+    return result;
+}
+
+//Задание 6: удалить многочлены с корнем x из бинарного файла
+void task_6(const char *filename, int x) {
+    FILE *file = fopen(filename, "rb");
+    if (file == NULL) {
+        printf("Ошибка открытия исходного файла\n");
+        exit(-3);
+    }
+
+    FILE *temp_file = fopen("C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/converted_task_6.txt", "wb");
+
+    if (!temp_file) {
+        printf("Ошибка открытия файла назначения\n");
+        fclose(file);
+        exit(-3);
+    }
+
+    Polynomial poly;
+
+    while (fread(&poly, sizeof(Polynomial), 1, file)) {
+        if ((poly.coefficient * pow_(x, poly.power)) != (x * x)) {
+            fwrite(&poly, sizeof(Polynomial), 1, temp_file);
+        }
+    }
+
+    fclose(file);
+    fclose(temp_file);
 }
