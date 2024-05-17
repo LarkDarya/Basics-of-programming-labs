@@ -84,6 +84,10 @@ void breadthFirstTraversal(node *root);
 //Задание 7: дан целочисленный массив nums. Верните максимальное двоичное дерево, построенное из nums.
 void seventhTask(int array[], int lengthArray);
 
+//Задание 8: даны строка s и целочисленный массив indices одинаковой длины. Строка s будет перетасована
+//таким образом, что символ в позиции [i] переместится в перетасованную строку indices[i].
+void eighthTask(const char *s, int length, const int indexes[], char *newS);
+
 
 
 #endif //BASICS_OF_PROGRAMMING_LABS_LAB_20_H
