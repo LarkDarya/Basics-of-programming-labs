@@ -329,6 +329,23 @@ void test_sixthTask(){
     test_sixthTask_oneI();
 }
 
+void test_seventhTask_exampleOneFromTextbook(){
+    int array[6] = {3, 2, 1, 6, 0, 5};
+    int lengthArray = 6;
+    seventhTask(array, lengthArray);
+}
+
+void test_seventhTask_exampleTwoFromTextbook(){
+    int array[3] = {3, 2, 1};
+    int lengthArray = 3;
+    seventhTask(array, lengthArray);
+}
+
+void test_seventhTask(){
+    test_seventhTask_exampleOneFromTextbook();
+    test_seventhTask_exampleTwoFromTextbook();
+}
+
 int test(){
     test_firstTask();
     test_secondTask();
@@ -336,6 +353,7 @@ int test(){
     test_fourthTask();
     test_fifthTask();
     test_sixthTask();
+    test_seventhTask();
 }
 
 int main(){

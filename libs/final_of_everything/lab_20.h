@@ -10,6 +10,12 @@ typedef struct domain{
     char name[200];
 } domain;
 
+typedef struct node {
+    int key;
+    struct node *left;
+    struct node *right;
+} node;
+
 //заполняет матрицу нулями
 void matrixFillingZeros(matrix *m, int row, int col);
 
@@ -62,5 +68,22 @@ void fifthTask(matrix m, int rows, int cols, int *result);
 //Задание 6: дан строковый шаблон длины n с нулевым индексом, состоящий из символов «I», означающих
 //увеличение, и «D», означающих уменьшение. Вернуть лексикографическую наименьшую возможную строку num, соответствующую условиям
 void sixthTask(const char *s, int length, char *result, int *resultLength);
+
+//создает новый узел дерева с заданным ключом
+node *createNode(int k);
+
+//находит индекс элемента с максимальным значением в заданном массиве между двумя заданными индексами
+int searchMaxInd(int array[], int start, int end);
+
+//строит дерево из узлов на основе заданного массива и текущего узла
+void buildNodes(node *currentNode, int array[], int startInd, int endInd, bool isLeft);
+
+//выполняет обход в ширину дерева и выводит значения узлов на экран
+void breadthFirstTraversal(node *root);
+
+//Задание 7: дан целочисленный массив nums. Верните максимальное двоичное дерево, построенное из nums.
+void seventhTask(int array[], int lengthArray);
+
+
 
 #endif //BASICS_OF_PROGRAMMING_LABS_LAB_20_H
