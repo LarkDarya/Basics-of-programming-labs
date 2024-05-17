@@ -24,4 +24,13 @@ int calculateCountNeighbors(matrix m, int rowInd, int colInd, int rows, int cols
 //Задание 2: вернуть следующее состояние ячейки, применяя правила игры "Жизнь"
 void secondTask(matrix m, matrix *newM, int rows, int cols);
 
+//сравнивает два числа, переданные через указатели
+int sortedNumsCompare(const void * firstNum, const void * secondNum);
+
+//заполняет массив чисел значениями из матрицы и сортирует его в порядке возрастания
+void fillingNumFrameSorted(int *array, matrix m, int indRow, int indCol);
+
+//Задание 3: обрабатывает матрицу медианным фильтром
+void thirdTask(matrix *m, int size);
+
 #endif //BASICS_OF_PROGRAMMING_LABS_LAB_20_H
