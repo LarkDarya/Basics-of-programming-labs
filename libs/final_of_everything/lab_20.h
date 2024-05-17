@@ -59,5 +59,8 @@ void fillingCalcMatrix(matrix m, matrix *calcMatrix, int rows, int cols);
 //Задание 5: возвращает количество подматриц, в которых все единицы
 void fifthTask(matrix m, int rows, int cols, int *result);
 
+//Задание 6: дан строковый шаблон длины n с нулевым индексом, состоящий из символов «I», означающих
+//увеличение, и «D», означающих уменьшение. Вернуть лексикографическую наименьшую возможную строку num, соответствующую условиям
+void sixthTask(const char *s, int length, char *result, int *resultLength);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_LAB_20_H
