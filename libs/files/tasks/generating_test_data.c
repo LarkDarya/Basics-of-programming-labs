@@ -137,7 +137,6 @@ void generateFileWithStringsSequences(const char* fileName) {
 }
 
 int main() {
-    generateFileWithStringsSequences("C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/files/txt/original_task_5.txt");
 
     return 0;
 }

@@ -130,6 +130,28 @@ int task_2(const char *str) {
     return 0;
 }
 
+//вычисляет значение выражения, состоящего из двух операндов
+int calculate(int num1, char op, int num2) {
+    switch(op) {
+        case '+':
+            return num1 + num2;
+        case '-':
+            return num1 - num2;
+        case '*':
+            return num1 * num2;
+        case '/':
+            if (num2 != 0) {
+                return num1 / num2;
+            } else {
+                printf("\nОшибка деления на ноль!");
+                return -1;
+            }
+        default:
+            printf("\nОшибка: неверный оператор\n");
+            return -1;
+    }
+}
+
 //Задание 3: в файле, где записано одно арифметическое выражение с одной или двумя операциями,
 //записать ответ, решив данное выражение (операнды - однозначные числа)
 int task_3(const char *str) {
@@ -159,106 +181,13 @@ int task_3(const char *str) {
     if (count == 5){
         fscanf(file1, "%d %c %d", &num1, &op1, &num2);
 
-        if (op1 == '+') {
-            result = num1 + num2;
-        } else if (op1 == '-') {
-            result = num1 - num2;
-        } else if (op1 == '*') {
-            result = num1 * num2;
-        } else if (op1 == '/') {
-            if (num2 != 0) {
-                result = num1 / num2;
-            } else {
-                printf("Ошибка: деление на ноль\n");
-                fclose(file1);
-                return 1;
-            }
-        } else {
-            printf("Ошибка: неверный оператор\n");
-            fclose(file1);
-            return 1;
-        }
+        result = calculate(num1, op1, num2);
     } else if (count == 9){
         fscanf(file1, "%d %c %d %c %d", &num1, &op1, &num2, &op2, &num3);
 
-        if (op1 == '+' && op2 == '+') {
-            result = num1 + num2 + num3;
-        } else if (op1 == '+' && op2 == '-') {
-            result = num1 + num2 - num3;
-        } else if (op1 == '+' && op2 == '*') {
-            result = num1 + (num2 * num3);
-        } else if (op1 == '+' && op2 == '/') {
-            if (num3 != 0) {
-                result = num1 + (num2 / num3);
-            } else {
-                fprintf(file1, "\nОшибка деления на ноль!");;
-                fclose(file1);
-                return 1;
-            }
-        } else if (op1 == '-' && op2 == '+') {
-            result = num1 - num2 + num3;
-        } else if (op1 == '-' && op2 == '-') {
-            result = num1 - num2 - num3;
-        } else if (op1 == '-' && op2 == '*') {
-            result = num1 - (num2 * num3);
-        } else if (op1 == '-' && op2 == '/') {
-            if (num3 != 0) {
-                result = num1 - (num2 / num3);
-            } else {
-                fprintf(file1, "\nОшибка деления на ноль!");;
-                fclose(file1);
-                return 1;
-            }
-        } else if (op1 == '*' && op2 == '+') {
-            result = num1 * num2 + num3;
-        } else if (op1 == '*' && op2 == '-') {
-            result = num1 * num2 - num3;
-        } else if (op1 == '*' && op2 == '*') {
-            result = num1 * num2 * num3;
-        } else if (op1 == '*' && op2 == '/') {
-            if (num3 != 0) {
-                result = num1 * num2 / num3;
-            } else {
-                fprintf(file1, "\nОшибка деления на ноль!");;
-                fclose(file1);
-                return 1;
-            }
-        } else if (op1 == '/' && op2 == '+') {
-            if (num2 != 0) {
-                result = num1 / num2 + num3;
-            } else {
-                fprintf(file1, "\nОшибка деления на ноль!");;
-                fclose(file1);
-                return 1;
-            }
-        } else if (op1 == '/' && op2 == '-') {
-            if (num2 != 0) {
-                result = num1 / num2 - num3;
-            } else {
-                fprintf(file1, "\nОшибка деления на ноль!");;
-                fclose(file1);
-                return 1;
-            }
-        } else if (op1 == '/' && op2 == '*') {
-            if (num2 != 0) {
-                result = num1 / num2 * num3;
-            } else {
-                fprintf(file1, "\nОшибка деления на ноль!");;
-                fclose(file1);
-                return 1;
-            }
-        } else if (op1 == '/' && op2 == '/') {
-            if (num2 != 0 && num3 != 0) {
-                result = num1 / num2 / num3;
-            } else {
-                fprintf(file1, "\nОшибка деления на ноль!");;
-                fclose(file1);
-                return 1;
-            }
-        } else {
-            printf("Ошибка: неверный оператор\n");
-            fclose(file1);
-            return 1;
+        result = calculate(num1, op1, num2);
+        if (result != -1) {
+            result = calculate(result, op2, num3);
         }
     } else {
         fclose(file1);
