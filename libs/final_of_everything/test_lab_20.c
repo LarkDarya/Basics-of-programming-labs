@@ -2,6 +2,7 @@
 #include "lab_20.c"
 #include "../string/tasks/string_.h"
 #include <assert.h>
+#include <windows.h>
 
 void test_firstTask_exampleFromTextbook(){
     int n = 3;
@@ -391,6 +392,27 @@ void test_eighthTask(){
     test_eighthTask_difCase();
 }
 
+void test_ninthTask(){
+    int numsArray[5] = {2, 4, 1, 3, 5};
+    int lengthArray = 5;
+    int controlNum = 3;
+    char *firstFileName = "C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/final_of_everything/original_task_9.txt";
+    char *secondFileName = "C:/Users/darya/CLionProjects/Basics-of-programming-labs/libs/final_of_everything/converted_task_9.txt";
+
+    vector v = createVector(10);
+
+    ninthTask(numsArray, lengthArray, controlNum, firstFileName, secondFileName, &v);
+
+    int expectedLength = 2;
+    int expectedArrayNums[2] = {2, 1};
+
+    assert(expectedLength == v.size);
+
+    for (int i = 0; i < expectedLength; i++){
+        assert(v.data[i] == expectedArrayNums[i]);
+    }
+}
+
 int test(){
     test_firstTask();
     test_secondTask();
@@ -400,9 +422,12 @@ int test(){
     test_sixthTask();
     test_seventhTask();
     test_eighthTask();
+    test_ninthTask();
 }
 
 int main(){
+    SetConsoleOutputCP(CP_UTF8);
+
     test();
 
     return 0;

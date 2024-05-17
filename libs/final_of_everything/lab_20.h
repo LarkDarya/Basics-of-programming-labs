@@ -88,6 +88,17 @@ void seventhTask(int array[], int lengthArray);
 //таким образом, что символ в позиции [i] переместится в перетасованную строку indices[i].
 void eighthTask(const char *s, int length, const int indexes[], char *newS);
 
+//открывает файл с заданным именем в заданном режиме и возвращает указатель на FILE
+FILE* openFile(char *fileName, char *action);
 
+//заполняет файл целочисленными значениями из массива
+void fillingFile(int numsArray[], int lengthArray, char *fileName);
+
+//считывает числа из файла, фильтрует их по значению controlNum, записывая их в вектор и одновременно в файл
+void readingNumsFilteringAndWriting(vector *v, char *rFileName, int controlNum, char *wFileName);
+
+//Задание 9: В файле записана последовательность целых чисел. Создать файл, состоящий из чисел данного файла, значения которых меньше N.
+//Имена файлов и величина N задаются в командной строке.
+void ninthTask(int numsArray[], int lengthArray, int controlNum, char *firstFileName, char *secondFileName, vector *v);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_LAB_20_H
