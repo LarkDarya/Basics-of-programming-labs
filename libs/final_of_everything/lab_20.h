@@ -5,6 +5,11 @@
 #include "../data_structures/matrix/matrix.h"
 #include <stdbool.h>
 
+typedef struct domain{
+    size_t visits;
+    char name[200];
+} domain;
+
 //заполняет матрицу нулями
 void matrixFillingZeros(matrix *m, int row, int col);
 
