@@ -38,4 +38,26 @@ void fillingNumFrameSorted(int *array, matrix m, int indRow, int indCol);
 //Задание 3: обрабатывает матрицу медианным фильтром
 void thirdTask(matrix *m, int size);
 
+//выводит содержимое массива структур
+void outputResultDomains(domain *results, int size);
+
+//ищет заданное число в массиве целых чисел
+bool searchNumFromArray(const int array[], int length, int num);
+
+//ищет заданный домен в массиве структур и возвращает индекс этого домена
+int searchDomainInResults(const domain results[], int size, char *s);
+
+//обрабатывает случай, когда у домена есть точка, разделяющая домен верхнего уровня и поддомен
+void handlerDotPrtNotNull(domain *array, int ind, char *dotPtr, domain results[], int *sizeResult);
+
+//Задание 4: возвращает массив доменов с парным счетчиком для каждого поддомена во входных данных
+void fourthTask(domain array[], int size);
+
+//заполняет новую матрицу на основе данной
+void fillingCalcMatrix(matrix m, matrix *calcMatrix, int rows, int cols);
+
+//Задание 5: возвращает количество подматриц, в которых все единицы
+void fifthTask(matrix m, int rows, int cols, int *result);
+
+
 #endif //BASICS_OF_PROGRAMMING_LABS_LAB_20_H
