@@ -12,4 +12,16 @@ void matrixFillingZeros(matrix *m, int row, int col);
 //Необходимо выполнить следующую операцию: query[i] = [row1i, col1i, row2i, col2i]
 void firstTask(matrix *m, int countRequests, int *requestsArray[]);
 
+//проверяет, находится ли переданный индекс в пределах матрицы заданных размеров (rows, cols)
+bool isIndex(int rows, int cols, int indRow, int indCol);
+
+//определяет состояние ячейки в новой матрице на основе правил игры "Жизнь" и количества соседей вокруг ячейки
+int cellResultByPosition(matrix m, int indRow, int indCol, int countNeighbors);
+
+//производит обновление матрицы newM на основе матрицы m, применяя правила игры "Жизнь" для каждой ячейки
+int calculateCountNeighbors(matrix m, int rowInd, int colInd, int rows, int cols);
+
+//Задание 2: вернуть следующее состояние ячейки, применяя правила игры "Жизнь"
+void secondTask(matrix m, matrix *newM, int rows, int cols);
+
 #endif //BASICS_OF_PROGRAMMING_LABS_LAB_20_H
