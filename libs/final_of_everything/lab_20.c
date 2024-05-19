@@ -1,10 +1,22 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include "lab_20.h"
 #include <stdlib.h>
 #include "../data_structures/matrix/matrix.c"
 #include "../data_structures/vector/vector.c"
 #include <string.h>
+#include <signal.h>
+#include <unistd.h>
+
+typedef struct domain{
+    size_t visits;
+    char name[200];
+} domain;
+
+typedef struct node {
+    int key;
+    struct node *left;
+    struct node *right;
+} node;
 
 //заполняет матрицу нулями
 void matrixFillingZeros(matrix *m, int row, int col){
@@ -399,4 +411,33 @@ void ninthTask(int numsArray[], int lengthArray, int controlNum, char *firstFile
     fillingFile(numsArray, lengthArray,firstFileName);
     readingNumsFilteringAndWriting(v, firstFileName, controlNum, secondFileName);
     shrinkToFit(v);
+}
+
+//записывает данный текст в указанный файл
+void fillingFileWithText(char *fileName, char *text){
+    FILE *file = openFile(fileName, "w");
+    fprintf(file, "%s", text);
+    fclose(file);
+}
+
+//Задание 10: выдает на экран содержимое файла порциями по N строк:
+// каждая последующая порция выдается после нажатия клавиш Ctrl+C.
+void tenthTask(char *fileName, size_t countOutputLines, char *text){
+    fillingFileWithText(fileName, text);
+
+    FILE *file = openFile(fileName, "r");
+
+    char line[127];
+    int count = 0;
+
+    while (fgets(line, 127, file) != NULL) {
+        printf("%s", line);
+        count++;
+
+        if (count == countOutputLines){
+            printf("Please, press Ctrl + C\n");
+
+            while (getch() != 3);
+        }
+    }
 }

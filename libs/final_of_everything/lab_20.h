@@ -3,7 +3,8 @@
 
 #include <stdbool.h>
 #include "../data_structures/matrix/matrix.h"
-#include <stdbool.h>
+#include <signal.h>
+#include <unistd.h>
 
 typedef struct domain{
     size_t visits;
@@ -100,5 +101,12 @@ void readingNumsFilteringAndWriting(vector *v, char *rFileName, int controlNum, 
 //Задание 9: В файле записана последовательность целых чисел. Создать файл, состоящий из чисел данного файла, значения которых меньше N.
 //Имена файлов и величина N задаются в командной строке.
 void ninthTask(int numsArray[], int lengthArray, int controlNum, char *firstFileName, char *secondFileName, vector *v);
+
+//записывает данный текст в указанный файл
+void fillingFileWithText(char *fileName, char *text);
+
+//Задание 10: выдает на экран содержимое файла порциями по N строк:
+// каждая последующая порция выдается после нажатия клавиш Ctrl+C.
+void tenthTask(char *fileName, size_t countOutputLines, char *text);
 
 #endif //BASICS_OF_PROGRAMMING_LABS_LAB_20_H
