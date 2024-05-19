@@ -109,4 +109,10 @@ void fillingFileWithText(char *fileName, char *text);
 // каждая последующая порция выдается после нажатия клавиш Ctrl+C.
 void tenthTask(char *fileName, size_t countOutputLines, char *text);
 
+//Задание 11: Дан словарь из N различных слов, состоящих из строчных английских букв.
+// Вам приходит Q запросов, i-й из которых состоит из строки pi из строчных английских букв и числа ki.
+// В ответ на i-й запрос вы должны вывести ki-е в лексикографическом порядке слово
+// из словаря среди слов, имеющих pi в качестве префикса.
+void eleventhTask(char **dict, char **requests, int *num_in_req, int n, int q);
+
 #endif //BASICS_OF_PROGRAMMING_LABS_LAB_20_H

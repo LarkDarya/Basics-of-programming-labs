@@ -437,6 +437,16 @@ void test_tenthTask(){
     test_tenthTask_manyLineOutput();
 }
 
+void test_eleventhTask() {
+    int n = 10;
+    int q = 3;
+    char *dict[100] = {"aa", "aaa", "aab", "ab", "abc", "ac", "ba", "daa", "dab", "dadba"};
+    char *requests[100] = {"a", "da", "da"};
+    int num_in_req[3] = {4, 2, 4};
+
+    eleventhTask(dict, requests, num_in_req, n, q);
+}
+
 int test(){
     test_firstTask();
     test_secondTask();
@@ -448,6 +458,7 @@ int test(){
     test_eighthTask();
     test_ninthTask();
     test_tenthTask();
+    test_eleventhTask();
 }
 
 int main(){
